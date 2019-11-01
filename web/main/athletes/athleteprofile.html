@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>        
+        
+        <title>View/Edit Athlete Profile</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+        
+    </head>
+    
+    <body>
+        
+        <h1>View/Edit Athlete Profile</h1>
+        
+        <form id="profileform" name="profileform" onsubmit="return RECRUIT.postProfile();" accept-charset="UTF-8">
+            
+            <fieldset>
+                
+                <legend>Athlete Profile</legend>
+                
+                <strong>Name</strong><br/>
+                First name: <input type="text" name="fname" id="fname"/>
+                Middle name: <input type ="text" name="mname" id="mname"/>
+                Last name: <input type="text" name="lname" id="lname"/><br/>
+
+                <strong>Street Address</strong><br/>
+                Address: <input type="text" name="address" id="address"/> <br/>
+                Address line 2: <input type="text" name="address2" id="address2"/> <br/>
+                City: <input type="text" name="city" id="city"/> <br/>
+                State: <input type="text" name="state" id="state"/> <br/>
+                Zip: <input type="text" name="zip" id="zip"/> <br/>
+                Country: <input type="text" name="country" id="country"/><br/>
+
+                <strong>Date of Birth</strong><br/>
+                Month: <input type="number" name="dob_m" id="dob_m"/>
+                Day: <input type="number" name="dob_d" id="dob_d"/>
+                Year: <input type="number" name="dob_y" id="dob_y"/><br/>
+
+                <strong>Gender</strong><br/>
+                <select id="gender">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select><br/>
+
+                <strong>Contact Info</strong><br/>
+                Email: <input type="email" name="email" id="email"/> <br/>
+
+                <strong>High School</strong><br/>
+                School Name: <input type="text" name="highschool" id="highschool"/><br/>
+                SAT: <input type="text" name="sat" id="sat"/><br/>
+                TOEFL: <input type="text" name="toefl" id="toefl"/><br/>
+                Budget (in US$): <input type="number" name="budget" id="budget"/><br/>
+
+                <strong>Awards</strong><br/>
+                <textarea name="awards" id="awards">
+                </textarea><br/>
+
+                <strong>Social Media</strong><br/>
+                <textarea name="social" id="social">
+                </textarea>
+            
+                <br/>
+                <input type="submit" value="Submit" tabindex=99 />
+                
+            </fieldset>
+            
+        </form>
+        
+        <p><a href="../index.jsp">Back</a></p>
+        
+        <script type="text/javascript" src="scripts/athletes_v1.js"></script>
+        
+        <script>
+            
+            $(document).ready(function () {
+
+                RECRUIT.getProfile();
+
+            });
+            
+        </script>
+        
+    </body>
+    
+</html>

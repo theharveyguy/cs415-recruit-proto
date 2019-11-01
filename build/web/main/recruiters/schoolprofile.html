@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    
+    <head>
+        
+        <title>View/Edit School Profile</title>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
+        
+    </head>
+    
+    <body>
+        
+        <h1>View/Edit School Profile</h1>
+        
+        <form id="profileform" name="profileform" onsubmit="return RECRUIT.postProfile();" accept-charset="UTF-8">
+            
+            <fieldset>
+                
+                <legend>School Profile</legend>
+                
+                <strong>Recruiter Name</strong><br/>
+                First name: <input type="text" name="fname" id="fname"/>
+                Middle name: <input type ="text" name="mname" id="mname"/>
+                Last name: <input type="text" name="lname" id="lname"/><br/>
+
+                <strong>University Address</strong><br/>
+                Address: <input type="text" name="address" id="address"/> <br/>
+                Address line 2: <input type="text" name="address2" id="address2"/> <br/>
+                City: <input type="text" name="city" id="city"/> <br/>
+                State: <input type="text" name="state" id="state"/> <br/>
+                Zip: <input type="text" name="zip" id="zip"/> <br/>
+                Country: <input type="text" name="country" id="country"/><br/>
+
+                <strong>Contact Info</strong><br/>
+                Email: <input type="text" name="email" id="email"/><br/>
+
+                <strong>University Info</strong><br/>
+                Name of University: <input type="text" name="schoolname" id="schoolname"/>
+                University Type:
+                <select id="uni_type">
+                    <option value="1">Public</option>
+                    <option value="2">Private</option>
+                </select><br/>
+                Number of Students: <input type="number" name="num_students" id="num_students"/><br/>
+                Minimum SAT score: <input type="text" name="sat" id="sat"/>
+                Minimum TOEFL score: <input type="text" name="toefl" id="toefl"/><br/>
+                Minimum Expenses: <input type="number" name="min_expenses" id="min_expenses"/>
+                Maximum Expenses: <input type="number" name="max_expenses" id="max_expenses"/><br/>
+                Scholarships offered:
+                <select id="scholarship">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select><br/>
+
+                <strong>Athletic Info</strong><br/>
+                Team Name: <input type="text" name="teamname" id="teamname"/><br/>
+                Division: <div id="division"></div><br/>
+                Conference:<div id="conference"></div><br/>
+                Men's Sports: <div id="mens"></div><br/>
+                Women's Sports: <div id="womens"></div><br/>
+                    
+                <br/>    
+                <input type="submit" value="Submit" tabindex=99 />
+                
+            </fieldset>
+            
+        </form>
+        
+        <p><a href="../index.jsp">Back</a></p>
+        
+        <script type="text/javascript" src="scripts/recruiters_v1.js"></script>
+        
+        <script>
+            
+            $(document).ready(function () {
+
+                RECRUIT.getProfile();
+
+            });
+            
+        </script>
+        
+    </body>
+    
+</html>

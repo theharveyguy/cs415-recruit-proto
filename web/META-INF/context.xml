@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/RecruitPrototype">
+
+    <Resource
+        name="jdbc/auth"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="com.mysql.jdbc.Driver"
+        username="authority"
+        password="authority"
+        url="jdbc:mysql://localhost:3306/recruit_db?useSSL=false&amp;serverTimezone=America/Chicago"
+        initialSize="10"
+        maxTotal="100"
+        maxIdle="30"
+        maxWaitMillis="10000"
+        validationQuery="SELECT 1"
+        validationQueryTimeout="-1"
+        testOnBorrow="true"
+        testOnReturn="false"
+        removeAbandonedOnBorrow="true"
+        removeAbandonedTimeout="60"
+        logAbandoned="true"
+    />
+
+    <Realm
+        className="org.apache.catalina.realm.DataSourceRealm"
+        userTable="login"
+        userNameCol="username"
+        userCredCol="password"
+        userRoleTable="userrole"
+        roleNameCol="rolename"
+        localDataSource="true"
+        dataSourceName="jdbc/auth">
+        <CredentialHandler className="org.apache.catalina.realm.MessageDigestCredentialHandler" algorithm="md5" />
+    </Realm>
+    
+    <Resource
+        name="jdbc/recruit_db"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="com.mysql.jdbc.Driver"
+        username="db_user"
+        password="3^3@yer$"
+        url="jdbc:mysql://localhost:3306/recruit_db?useSSL=false&amp;serverTimezone=America/Chicago"
+        initialSize="10"
+        maxTotal="100"
+        maxIdle="30"
+        maxWaitMillis="10000"
+        validationQuery="SELECT 1"
+        validationQueryTimeout="-1"
+        testOnBorrow="true"
+        testOnReturn="false"
+        removeAbandonedOnBorrow="true"
+        removeAbandonedTimeout="60"
+        logAbandoned="true"
+    />
+
+</Context>

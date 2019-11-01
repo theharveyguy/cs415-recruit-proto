@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>AthleteProfile</servlet-name>
+        <servlet-class>edu.jsu.mcis.recruitproto.AthleteProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SchoolProfile</servlet-name>
+        <servlet-class>edu.jsu.mcis.recruitproto.SchoolProfile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AthleteProfile</servlet-name>
+        <url-pattern>/AthleteProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SchoolProfile</servlet-name>
+        <url-pattern>/SchoolProfile</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>redirect.jsp</welcome-file>
+    </welcome-file-list>
+    <security-constraint>
+        <display-name>Main</display-name>
+        <web-resource-collection>
+            <web-resource-name>Main</web-resource-name>
+            <description/>
+            <url-pattern>/main/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Main Constraint</description>
+            <role-name>athlete</role-name>
+            <role-name>recruiter</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Athletes</display-name>
+        <web-resource-collection>
+            <web-resource-name>Athletes</web-resource-name>
+            <description/>
+            <url-pattern>/main/athletes/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Athletes Constraint</description>
+            <role-name>athlete</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Recruiters</display-name>
+        <web-resource-collection>
+            <web-resource-name>Recruiters</web-resource-name>
+            <description/>
+            <url-pattern>/main/recruiters/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Recruiters Constraint</description>
+            <role-name>recruiter</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login.jsp?result=false</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>athlete</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>recruiter</role-name>
+    </security-role>
+</web-app>
