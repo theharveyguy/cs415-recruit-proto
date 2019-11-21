@@ -12,6 +12,8 @@ var RECRUIT = ( function() {
 
                 success: function(response) {
                     
+                    // if time allows, convert all of this to jQuery
+                    
                     document.getElementById('fname').value = response.fname;
                     document.getElementById('mname').value = response.mname;
                     document.getElementById('lname').value = response.lname;
@@ -32,7 +34,6 @@ var RECRUIT = ( function() {
                     document.getElementById('min_expenses').value = response.min_expenses;
                     document.getElementById('max_expenses').value = response.max_expenses;
                     
-                    // 
                     document.getElementById('teamname').value = response.teamname;
                     
                     // Division

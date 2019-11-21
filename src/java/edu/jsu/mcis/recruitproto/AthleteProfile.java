@@ -3,6 +3,7 @@ package edu.jsu.mcis.recruitproto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -70,6 +71,26 @@ public class AthleteProfile extends HttpServlet {
             
         }
         
+    }
+    
+    public String getCountry() throws NamingException{
+        RecruitDatabase db = new RecruitDatabase();
+        // TODO
+    }
+    
+    public String getRegion() throws NamingException{
+        RecruitDatabase db = new RecruitDatabase();
+        // TODO
+    }
+    
+    public String getCity() throws NamingException{
+        RecruitDatabase db = new RecruitDatabase();
+        // TODO
+    }
+    
+    public String getSports() throws NamingException{
+        RecruitDatabase db = new RecruitDatabase();
+        // TODO
     }
 
     @Override
