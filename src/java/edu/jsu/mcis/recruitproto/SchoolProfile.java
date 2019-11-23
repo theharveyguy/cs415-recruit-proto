@@ -12,27 +12,27 @@ public class SchoolProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        System.err.println("*** GET SCHOOLPROFILE");
-        
-        try {
-            
-            RecruitDatabase db = new RecruitDatabase();
-            
-            PrintWriter out = response.getWriter();
-            
-            String output = db.getSchoolProfile(request.getRemoteUser());
-            
-            out.println(output);
-            
-        }
-        
-        catch (Exception e) {
-            
-            System.err.println(e.toString());
-            
-        }
-        
+        /* Currently unavailable
+        *System.err.println("*** GET SCHOOLPROFILE");
+        *
+        *try {
+        *    
+        *    RecruitDatabase db = new RecruitDatabase();
+        *    
+        *    PrintWriter out = response.getWriter();
+        *    
+        *    String output = db.getSchoolProfile(request.getRemoteUser());
+        *    
+        *    out.println(output);
+        *    
+        *}
+        *
+        *catch (Exception e) {
+        *    
+        *    System.err.println(e.toString());
+        *    
+        *}
+        */
     }
 
     @Override
