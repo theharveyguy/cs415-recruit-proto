@@ -44,22 +44,22 @@ public class SchoolProfile extends HttpServlet {
     
     public String getCountry() throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
-        // TODO
+        return(db.getCountryAsHTML());
     }
     
     public String getRegion() throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
-        // TODO
+        return(db.getRegionAsHTML());
     }
     
     public String getCity() throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
-        // TODO
+        return(db.getCityAsHTML());
     }
     
     public String getSports() throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
-        // TODO
+        return(db.getSportsAsHTML());
     }
 
     @Override
