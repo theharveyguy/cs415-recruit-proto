@@ -35,6 +35,7 @@ public class AthleteProfile extends HttpServlet {
         *}
         */
         
+        
     }
 
     @Override
@@ -79,22 +80,22 @@ public class AthleteProfile extends HttpServlet {
         RecruitDatabase db = new RecruitDatabase();
         return(db.getCountryAsHTML());
     }
-    
-    public String getRegion() throws NamingException{
+
+    public String getRegion(String countryid) throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
-        return(db.getRegionAsHTML());
+        return(db.getRegionAsHTML(countryid));
     }
-    
-    public String getCity() throws NamingException{
+
+    public String getCity(String regionid) throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
-        return(db.getCityAsHTML());
+        return(db.getCityAsHTML(regionid));
     }
-    
+
     public String getSports() throws NamingException{
         RecruitDatabase db = new RecruitDatabase();
         return(db.getSportsAsHTML());
     }
-
+        
     @Override
     public String getServletInfo() {
         

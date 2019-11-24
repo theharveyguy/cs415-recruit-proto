@@ -171,12 +171,26 @@ public class RecruitDatabase {
         boolean hasResult;
         
         try{
-            connection = getConnection();
-            
+            connection = db.getConnection();
+            // need to develop this query
             query = "";
             pstatement = connection.prepareStatement(query);
             
+            hasResult = pstatement.execute();
             
+            if (hasResult){
+                resultset = pstatement.getResultSet();
+                if (resultset.next()){
+                    //fill HTML form in loop
+                    while (resultset.next()){
+                        // format
+                        // <option value = "name"> Name </option>
+                        s.append("<option value = \"");
+                        s.append(resultset.getString("name")).append("\">").append(resultset.getString("name"));
+                        s.append("</option> \n");
+                    }
+                }
+            }
         }
         catch (Exception e) { System.err.println( e.toString() ); }
         
