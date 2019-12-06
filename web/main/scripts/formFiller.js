@@ -9,7 +9,6 @@ var formFiller = ( function(){
         city = $("#city").val(),
         
         fillCountry: function(){
-            // call getCountry() from servlet
             data = ["country"];
             $.get(easyURL,data,
                   function(response){
@@ -18,7 +17,6 @@ var formFiller = ( function(){
             );
         },
         fillRegion: function(){
-            // call getRegion() from servlet
             data = ["region", country];
             $.get(easyURL,data,
                   function(response){

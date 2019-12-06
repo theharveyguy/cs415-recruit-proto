@@ -2,8 +2,6 @@ package edu.jsu.mcis.recruitproto;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +46,7 @@ public class AthleteProfile extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         // Not yet supported
+        doGet(request,response);
         
     }
         
