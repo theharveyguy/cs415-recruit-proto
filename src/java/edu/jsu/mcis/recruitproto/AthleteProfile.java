@@ -13,87 +13,42 @@ public class AthleteProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /* Currently unavailable
-        *System.err.println("*** GET ATHLETEPROFILE");
-        *
-        *try {
-        *    
-        *    RecruitDatabase db = new RecruitDatabase();
-        *    
-        *    PrintWriter out = response.getWriter();
-        *    
-        *    String output = db.getAthleteProfile(request.getRemoteUser());
-        *    
-        *    out.println(output);
-        *    
-        *}
-        *
-        *catch (Exception e) {
-        *    
-        *    System.err.println(e.toString());
-        *    
-        *}
-        */
         
+        response.setContentType("text/html");
+        
+        PrintWriter output = response.getWriter();
+        
+        // decide what to do based on request
+        String[] data = request.getParameterValues("data");
+        try {
+            RecruitDatabase db = new RecruitDatabase();
+            
+            switch (data[0]){
+            case "country":
+                output.println(db.getCountryAsHTML());
+                break;
+            case "region":
+                output.println(db.getRegionAsHTML(data[1]));
+                break;
+            case "city":
+                output.println(db.getCityAsHTML(data[1]));
+                break;
+            case "sports":
+                output.println(db.getSportsAsHTML());
+                break;
+            default:
+                break;
+            }
+        }
+        catch (Exception e) { System.err.println( e.toString() ); }
         
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /* Currently Unavailable
-        *System.err.println("*** POST ATHLETEPROFILE");
-        *
-        *try {
-        *    
-        *   RecruitDatabase db = new RecruitDatabase();
-        *    
-        *    PrintWriter out = response.getWriter();
-        *    
-        *    HashMap<String, Object> data = new HashMap(request.getParameterMap());
-        *    
-        *    for (HashMap.Entry<String, Object> e : data.entrySet()) {
-        *        
-        *        String key = e.getKey();
-        *        String value = ((String[])e.getValue())[0];
-        *        data.put(key, value);
-        *        
-        *    }
-        *    
-        *    //String output = JSONValue.toJSONString(results);
-        *    
-        *    int result = db.postAthleteProfile(request.getRemoteUser(), data);
-        *    
-        *    out.println("{\"result\":" + result + "}");
-        *    
-        *}
-        *
-        *catch (Exception e) {
-        *    
-        *    System.err.println(e.toString());
-        *    
-        *}
-        */
         
-    }
-    
-    public String getCountry() throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getCountryAsHTML());
-    }
-
-    public String getRegion(String countryid) throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getRegionAsHTML(countryid));
-    }
-
-    public String getCity(String regionid) throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getCityAsHTML(regionid));
-    }
-
-    public String getSports() throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getSportsAsHTML());
+        // Not yet supported
+        
     }
         
     @Override

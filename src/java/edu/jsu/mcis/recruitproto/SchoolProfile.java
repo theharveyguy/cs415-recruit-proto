@@ -2,6 +2,8 @@ package edu.jsu.mcis.recruitproto;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,27 +14,35 @@ public class SchoolProfile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /* Currently unavailable
-        *System.err.println("*** GET SCHOOLPROFILE");
-        *
-        *try {
-        *    
-        *    RecruitDatabase db = new RecruitDatabase();
-        *    
-        *    PrintWriter out = response.getWriter();
-        *    
-        *    String output = db.getSchoolProfile(request.getRemoteUser());
-        *    
-        *    out.println(output);
-        *    
-        *}
-        *
-        *catch (Exception e) {
-        *    
-        *    System.err.println(e.toString());
-        *    
-        *}
-        */
+        
+        response.setContentType("text/html");
+        
+        PrintWriter output = response.getWriter();
+        
+        // decide what to do based on request
+        String[] data = request.getParameterValues("data");
+        try {
+            RecruitDatabase db = new RecruitDatabase();
+            
+            switch (data[0]){
+            case "country":
+                output.println(db.getCountryAsHTML());
+                break;
+            case "region":
+                output.println(db.getRegionAsHTML(data[1]));
+                break;
+            case "city":
+                output.println(db.getCityAsHTML(data[1]));
+                break;
+            case "sports":
+                output.println(db.getSportsAsHTML());
+                break;
+            default:
+                break;
+            }
+        }
+        catch (Exception e) { System.err.println( e.toString() ); }
+        
     }
 
     @Override
@@ -42,26 +52,6 @@ public class SchoolProfile extends HttpServlet {
         
     }
     
-    public String getCountry() throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getCountryAsHTML());
-    }
-    
-    public String getRegion(String countryid) throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getRegionAsHTML(countryid));
-    }
-    
-    public String getCity(String regionid) throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getCityAsHTML(regionid));
-    }
-    
-    public String getSports() throws NamingException{
-        RecruitDatabase db = new RecruitDatabase();
-        return(db.getSportsAsHTML());
-    }
-
     @Override
     public String getServletInfo() {
         

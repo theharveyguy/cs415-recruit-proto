@@ -1,29 +1,46 @@
+var easyURL;
+
 var formFiller = ( function(){
     return{
+        
+        data = [],
+        country = $("#country").val(),
+        region = $("#region").val(),
+        city = $("#city").val(),
+        
         fillCountry: function(){
             // call getCountry() from servlet
-            $.ajax({
-                
-            });
+            data = ["country"];
+            $.get(easyURL,data,
+                  function(response){
+                      $("#country").html(response);
+                  }
+            );
         },
         fillRegion: function(){
             // call getRegion() from servlet
-            $.ajax({
-                
-            });
+            data = ["region", country];
+            $.get(easyURL,data,
+                  function(response){
+                      $("#country").html(response);
+                  }
+            );
         },
         fillCity: function(){
-            // call getCity() from servlet
-            $.ajax({
-                
-            });
+            data = ["city", region];
+            $.get(easyURL,data,
+                  function(response){
+                      $("#country").html(response);
+                  }
+            );
         },
         fillSports: function(){
-            // incomplete
-            // call getSports() from servlet
-            $.ajax({
-                
-            });
+            data = ["sports"];
+            $.get(easyURL,data,
+                  function(response){
+                      $("#country").html(response);
+                  }
+            );
         }
     };
 }());

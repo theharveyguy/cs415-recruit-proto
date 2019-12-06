@@ -11,13 +11,20 @@
         
         <script type="text/javascript" src="../scripts/jquery-3.3.1.min.js"></script>
         
+        <script type ="text/javascript" src="scripts/formFiller.js">
+    
+            easyURL = '../../AthleteProfile';
+    
+        </script>
+
+        
     </head>
     
     <body>
         
         <h1>View/Edit Athlete Profile</h1>
         
-        <form id="profileform" name="profileform" onsubmit="return RECRUIT.postProfile();" accept-charset="UTF-8">
+        <form id="profileform" name="profileform" accept-charset="UTF-8">
             
             <fieldset>
                 
@@ -33,12 +40,27 @@
                 Address line 2: <input type="text" name="address2" id="address2"/> <br/>
                 <select id="country">
                     <!-- fill in country data from location database -->
+                    <script type = "text/javascript" src = "scripts/formFiller.js">
+                        
+                        formFiller.fillCountry();
+                        
+                    </script>
                 </select>
                 <select id="region">
                     <!-- fill in region/state data from location database -->
+                    <script type = "text/javascript" src = "scripts/formFiller.js">
+                        
+                        formFiller.fillRegion();
+                        
+                    </script>
                 </select>
                 <select id="city">
                     <!-- fill in city data from location database -->
+                    <script type = "text/javascript" src = "scripts/formFiller.js">
+                        
+                        formFiller.fillCity();
+                        
+                    </script>
                 </select>
                 Zip: <input type="text" name="zip" id="zip"/> <br/>
 
@@ -68,6 +90,11 @@
                     sports. </p>
                 <select id ="sports" size="10" multiple="multiple">
                     <!-- fill in sports data from location database -->
+                    <script type = "text/javascript" src = "scripts/formFiller.js">
+                        
+                        formFiller.fillSports();
+                        
+                    </script>
                 </select>
 
                 <br/>
